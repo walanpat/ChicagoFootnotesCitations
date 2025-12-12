@@ -19,4 +19,5 @@ Once you re-open microsoft word, you should see it present under the `References
   * Books
   * Journal Articles
 
-* Does not work for **Bibliography**
+
+* Does not have **Bibliography** functionality
