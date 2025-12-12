@@ -14,3 +14,9 @@ Once you re-open microsoft word, you should see it present under the `References
 
 ![img.png](img.png)
 
+## Note:
+* Only works for the following **Citation** Sources:
+  * Books
+  * Journal Articles
+
+* Does not work for **Bibliography**
