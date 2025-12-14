@@ -79,16 +79,26 @@
 			</body>
 		</html>
 	</xsl:template>
+
 	<!--Defines the output of the Citation-->
 	<xsl:template match="b:Citation/b:Source[b:SourceType = 'Book']">
 		<html xmlns="https://www.w3.org/TR/REC-html40">
 			<xsl:variable name="PageFieldLength">
 				<xsl:value-of select="count(b:Pages)" />
 			</xsl:variable>
+			<xsl:variable name="FirstNamePresent">
+				<xsl:value-of select="count(b:Author/b:Author/b:NameList/b:Person/b:First)"/>
+			</xsl:variable>
 			<body>
+				<xsl:choose>
+					<xsl:when test ="$FirstNamePresent!=0">
+						<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:First"/>
+						<xsl:text> </xsl:text>
+					</xsl:when>
+				</xsl:choose>
 				<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:Last"/>
 				<xsl:text>, </xsl:text>
-				<xsl:value-of select="b:Title"/>
+				<i><xsl:value-of select="b:Title"/></i>
 				<xsl:text>, </xsl:text>
 				<xsl:text>(</xsl:text>
 				<xsl:value-of select="b:Publisher"/>
@@ -112,11 +122,22 @@
 			<xsl:variable name="PageFieldLength">
 				<xsl:value-of select="count(b:Pages)" />
 			</xsl:variable>
+
+			<xsl:variable name="FirstNamePresent">
+				<xsl:value-of select="count(b:Author/b:Author/b:NameList/b:Person/b:First)"/>
+			</xsl:variable>
 			<body>
+				<xsl:choose>
+					<xsl:when test ="$FirstNamePresent!=0">
+						<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:First"/>
+						<xsl:text> </xsl:text>
+					</xsl:when>
+				</xsl:choose>
+
 				<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:Last"/>
 				<xsl:text>, "</xsl:text>
-				<xsl:value-of select="b:Title"/>
-				<xsl:text>", </xsl:text>
+				<i><xsl:value-of select="b:Title"/></i>
+				<xsl:text>," </xsl:text>
 				<xsl:value-of select="b:Publisher"/>
 				<xsl:text> </xsl:text>
 				<xsl:value-of select="b:Volume"/>
