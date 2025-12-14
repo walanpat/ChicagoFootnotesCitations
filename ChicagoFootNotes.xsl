@@ -11,11 +11,13 @@
 	<xsl:template match="b:Version">
 		<xsl:text>2006.5.07</xsl:text>
 	</xsl:template>
+
 	<!--Defines the name of the style in the References dropdown-->
 	<xsl:template match="b:StyleNameLocalized">
 		<xsl:text>ChicagoFootNotes</xsl:text>
 	</xsl:template>
-	<!--Specifies which fields should appear in the Create Source dialog when in a collapsed state (The Show All Bibliography Fieldscheckbox is cleared)-->
+
+	<!--Specifies which fields should appear in the Create Source dialog when in a collapsed state (The Show All Bibliography Fields checkbox is cleared)-->
 	<xsl:template match="b:GetImportantFields[b:SourceType = 'Book']">
 		<b:ImportantFields>
 			<b:ImportantField><xsl:text>b:Author/b:Author/b:NameList</xsl:text> </b:ImportantField>
@@ -36,7 +38,7 @@
 		</b:ImportantFields>
 	</xsl:template>
 
-	<!--Defines the output format for a simple Book (in the Bibliography) with important fields defined-->
+	<!--Defines the output format in the Bibliography by Source-->
 	<xsl:template match="b:Source[b:SourceType = 'Book']">
 		<!--Count the number of Corporate Authors (can only be 0 or 1-->
 		<xsl:variable name="cCorporateAuthors">
@@ -70,7 +72,7 @@
 			<xsl:text>.</xsl:text>
 		</p>
 	</xsl:template>
-	<!--Defines the output of the entire Bibliography-->
+	<!--Calls the above bibliography template-->
 	<xsl:template match="b:Bibliography">
 		<html xmlns="https://www.w3.org/TR/REC-html40">
 			<body>
@@ -80,7 +82,7 @@
 		</html>
 	</xsl:template>
 
-	<!--Defines the output of the Citation-->
+	<!--Defines the output of the Citation Organized by Source-->
 	<xsl:template match="b:Citation/b:Source[b:SourceType = 'Book']">
 		<html xmlns="https://www.w3.org/TR/REC-html40">
 			<xsl:variable name="PageFieldLength">
