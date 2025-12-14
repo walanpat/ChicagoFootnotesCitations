@@ -9,7 +9,7 @@
 	</xsl:template>
 	<!--Set an optional version number for this style-->
 	<xsl:template match="b:Version">
-		<xsl:text>2006.5.07</xsl:text>
+		<xsl:text>2025.12.14</xsl:text>
 	</xsl:template>
 
 	<!--Defines the name of the style in the References dropdown-->
@@ -88,13 +88,22 @@
 			<xsl:variable name="PageFieldLength">
 				<xsl:value-of select="count(b:Pages)" />
 			</xsl:variable>
-			<xsl:variable name="FirstNamePresent">
+			<xsl:variable name="FirstNameCount">
 				<xsl:value-of select="count(b:Author/b:Author/b:NameList/b:Person/b:First)"/>
+			</xsl:variable>
+			<xsl:variable name="MiddleNameCount">
+				<xsl:value-of select="count(b:Author/b:Author/b:NameList/b:Person/b:Middle)"/>
 			</xsl:variable>
 			<body>
 				<xsl:choose>
-					<xsl:when test ="$FirstNamePresent!=0">
+					<xsl:when test ="$FirstNameCount!=0">
 						<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:First"/>
+						<xsl:text> </xsl:text>
+					</xsl:when>
+				</xsl:choose>
+				<xsl:choose>
+					<xsl:when test ="$MiddleNameCount!=0">
+						<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:Middle"/>
 						<xsl:text> </xsl:text>
 					</xsl:when>
 				</xsl:choose>
@@ -125,13 +134,23 @@
 				<xsl:value-of select="count(b:Pages)" />
 			</xsl:variable>
 
-			<xsl:variable name="FirstNamePresent">
+			<xsl:variable name="FirstNameCount">
 				<xsl:value-of select="count(b:Author/b:Author/b:NameList/b:Person/b:First)"/>
+			</xsl:variable>
+
+			<xsl:variable name="MiddleNameCount">
+				<xsl:value-of select="count(b:Author/b:Author/b:NameList/b:Person/b:Middle)"/>
 			</xsl:variable>
 			<body>
 				<xsl:choose>
-					<xsl:when test ="$FirstNamePresent!=0">
+					<xsl:when test ="$FirstNameCount!=0">
 						<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:First"/>
+						<xsl:text> </xsl:text>
+					</xsl:when>
+				</xsl:choose>
+				<xsl:choose>
+					<xsl:when test ="$MiddleNameCount!=0">
+						<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:Middle"/>
 						<xsl:text> </xsl:text>
 					</xsl:when>
 				</xsl:choose>
