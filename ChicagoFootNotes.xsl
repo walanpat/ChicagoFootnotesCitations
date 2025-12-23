@@ -9,7 +9,7 @@
 	</xsl:template>
 	<!--Set an optional version number for this style-->
 	<xsl:template match="b:Version">
-		<xsl:text>2025.12.14</xsl:text>
+		<xsl:text>2025.12.23</xsl:text>
 	</xsl:template>
 
 	<!--Defines the name of the style in the References dropdown-->
@@ -156,9 +156,9 @@
 				</xsl:choose>
 
 				<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:Last"/>
-				<xsl:text>, "</xsl:text>
+				<xsl:text>, ‟</xsl:text>
 				<i><xsl:value-of select="b:Title"/></i>
-				<xsl:text>," </xsl:text>
+				<xsl:text>,” </xsl:text>
 				<xsl:value-of select="b:Publisher"/>
 				<xsl:text> </xsl:text>
 				<xsl:value-of select="b:Volume"/>
