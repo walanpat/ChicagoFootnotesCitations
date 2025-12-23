@@ -157,9 +157,9 @@
 
 				<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:Last"/>
 				<xsl:text>, ‟</xsl:text>
-				<i><xsl:value-of select="b:Title"/></i>
+				<xsl:value-of select="b:Title"/>
 				<xsl:text>,” </xsl:text>
-				<xsl:value-of select="b:Publisher"/>
+				<i><xsl:value-of select="b:Publisher"/></i>
 				<xsl:text> </xsl:text>
 				<xsl:value-of select="b:Volume"/>
 				<xsl:text> (</xsl:text>
