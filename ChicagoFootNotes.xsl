@@ -156,7 +156,7 @@
 				</xsl:choose>
 
 				<xsl:value-of select="b:Author/b:Author/b:NameList/b:Person/b:Last"/>
-				<xsl:text>, &#x201f;</xsl:text>
+				<xsl:text>, "</xsl:text>
 				<xsl:value-of select="b:Title"/>
 				<xsl:text>,” </xsl:text>
 				<i><xsl:value-of select="b:Publisher"/></i>
