@@ -9,7 +9,7 @@
 	</xsl:template>
 	<!--Set an optional version number for this style-->
 	<xsl:template match="b:Version">
-		<xsl:text>2025.12.23</xsl:text>
+		<xsl:text>2026.01.03</xsl:text>
 	</xsl:template>
 
 	<!--Defines the name of the style in the References dropdown-->
